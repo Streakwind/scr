@@ -10,6 +10,8 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/../mdx-components';
 import { PageFooter } from '@/components/page-footer';
 import { getFileLastModified } from '@/lib/git-utils';
+import { PageMetadata } from '@/components/page-metadata';
+import { parsePageMetadata } from '@/lib/frontmatter-utils';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -25,11 +27,22 @@ export default async function Page(props: {
   
   // Get the actual last modified date from Git
   const lastModified = await getFileLastModified(filePath);
+  
+  // Parse metadata from the page content
+  const metadata = parsePageMetadata(page.data.content);
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
       <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      <PageMetadata 
+        author={metadata.author}
+      />
+      <div className="-mt-2 -mb-10">
+        <DocsDescription>{page.data.description}</DocsDescription>
+      </div>
+    
+      <hr className="border-border mb-2" />
+      
       <DocsBody>
         <MDX components={getMDXComponents()} />
         
