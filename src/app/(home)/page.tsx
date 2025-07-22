@@ -1,7 +1,12 @@
+'use client';
+
 import Link from "next/link";
 import { ArrowRight, Zap, Shield, Rocket, Star, Github, Users, Globe, Heart, CheckCircle, Code, Palette } from "lucide-react";
+import { useGoogleAnalytics } from "@/lib/google-analytics";
 
 export default function Home() {
+  useGoogleAnalytics();
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       {/* Hero Section */}
