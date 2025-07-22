@@ -5,10 +5,12 @@ import { ArrowRight, Zap, Shield, Rocket, Star, Github, Users, Globe, Heart, Che
 import { useGoogleAnalytics } from "@/lib/google-analytics";
 
 export default function Home() {
-  useGoogleAnalytics();
+  const googleAnalyticsComponent = useGoogleAnalytics();
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
+    <>
+      {googleAnalyticsComponent}
+      <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       {/* Hero Section */}
       <div className="relative">
         {/* Background decoration */}
@@ -298,6 +300,7 @@ export default function Home() {
           </p>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

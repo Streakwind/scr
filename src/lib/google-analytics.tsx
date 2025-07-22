@@ -1,11 +1,16 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (
+      command: 'config' | 'event' | 'js',
+      targetId: string | Date,
+      config?: Record<string, unknown>
+    ) => void;
+    dataLayer: Record<string, unknown>[];
   }
 }
 
@@ -15,7 +20,7 @@ export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
 // Track page views
 export const pageview = (url: string) => {
   if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', GA_TRACKING_ID, {
+    window.gtag('config', GA_TRACKING_ID || '', {
       page_location: url,
     });
   }
@@ -42,8 +47,8 @@ export const event = ({
   }
 };
 
-// Hook to track page changes
-export function useGoogleAnalytics() {
+// Internal hook that uses useSearchParams
+function GoogleAnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -53,6 +58,17 @@ export function useGoogleAnalytics() {
       pageview(url);
     }
   }, [pathname, searchParams]);
+
+  return null;
+}
+
+// Hook to track page changes with Suspense wrapper
+export function useGoogleAnalytics() {
+  return (
+    <Suspense fallback={null}>
+      <GoogleAnalyticsTracker />
+    </Suspense>
+  );
 }
 
 // Google Analytics Script Component
