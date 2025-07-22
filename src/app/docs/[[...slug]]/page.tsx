@@ -8,6 +8,8 @@ import {
 } from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/../mdx-components';
+import { PageFooter } from '@/components/page-footer';
+import { getFileLastModified } from '@/lib/git-utils';
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -17,6 +19,12 @@ export default async function Page(props: {
   if (!page) notFound();
 
   const MDX = page.data.body;
+  
+  // Create file path from slug
+  const filePath = params.slug ? params.slug.join('/') : '';
+  
+  // Get the actual last modified date from Git
+  const lastModified = await getFileLastModified(filePath);
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
@@ -24,6 +32,11 @@ export default async function Page(props: {
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
         <MDX components={getMDXComponents()} />
+        
+        <PageFooter 
+          filePath={filePath}
+          lastModified={lastModified}
+        />
       </DocsBody>
       {/* <Rate
         onRateAction={async (url, feedback) => {
