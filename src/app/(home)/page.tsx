@@ -332,7 +332,7 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { name: 'Emily Davis', role: 'Documentation', avatar: '👩‍💼', color: 'from-orange-500 to-red-500', bio: 'Technical writer with 5+ years creating clear, user-friendly documentation for complex software products.', github: 'https://github.com/emilydavis', linkedin: 'https://linkedin.com/in/emilydavis' },
-                { name: 'David Kim', role: 'Frontend Help', avatar: '👨‍💻', color: 'from-violet-500 to-purple-500', bio: 'React specialist who loves contributing to open source projects in his spare time.', github: 'https://github.com/davidkim' },
+                { name: 'David Kim', role: 'Frontend Help', avatar: '👨‍💻', color: 'from-violet-500 to-purple-500', bio: 'React specialist who loves contributing to open source projects in his spare time.', github: 'https://github.com/davidkim', instagram: 'https://scr-v3.vercel.app', youtube: 'https://scr-v3.vercel.app', website: 'https://scr-v3.vercel.app', email: 'https://scr-v3.vercel.app' },
               ].map((volunteer, index) => (
                 <div 
                   key={index} 
@@ -449,7 +449,7 @@ export default function Home() {
             <h3 className="text-2xl font-bold text-center mb-12 text-muted-foreground">Our Sponsors</h3>
             <div className="grid grid-cols-5 gap-6">
               {[
-                // { name: 'TechCorp', logo: '🚀', tier: 'gold', color: 'from-blue-500 to-purple-500' },
+                { name: 'TechCorp', logo: '🚀', tier: 'gold', color: 'from-blue-500 to-purple-500' },
                 // { name: 'Analytics+', logo: '📈', color: 'from-teal-500 to-green-500' }
               ].map((sponsor, index) => (
                 <div key={index} className="group">
