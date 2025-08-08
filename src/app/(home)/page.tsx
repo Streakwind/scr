@@ -431,11 +431,11 @@ export default function Home() {
 
           {/* Call to action for joining team */}
           <div className="text-center">
-            <div className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-muted/50 to-muted/30 border border-border hover:border-blue-500/50 transition-all duration-300 group cursor-pointer">
+            <Link href="/contact" className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-muted/50 to-muted/30 border border-border hover:border-blue-500/50 transition-all duration-300 group cursor-pointer">
               <Users className="w-5 h-5 group-hover:scale-110 transition-transform" />
               <span className="font-medium">Want to join our team? Feel free to contact us!</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -444,17 +444,17 @@ export default function Home() {
       <div className="py-24 sm:py-32 bg-muted/30">
         <div className="container mx-auto px-6">
 
-          {/* All Sponsors */}
+          {/* All Sponsors - Commented out for now */}
+          
           <div className="mb-16">
             <h3 className="text-2xl font-bold text-center mb-12 text-muted-foreground">Our Sponsors</h3>
-            <div className="grid grid-cols-5 gap-6">
+            {/*<div className="grid grid-cols-5 gap-6">
               {[
                 { name: 'TechCorp', logo: '🚀', tier: 'gold', color: 'from-blue-500 to-purple-500' },
                 // { name: 'Analytics+', logo: '📈', color: 'from-teal-500 to-green-500' }
               ].map((sponsor, index) => (
                 <div key={index} className="group">
                   <div className="relative p-6 rounded-2xl bg-background border-2 border-border hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-                    {/* Logo */}
                     <div className="text-center mb-4">
                       <div className={`w-16 h-16 mx-auto rounded-xl bg-gradient-to-r ${sponsor.color} flex items-center justify-center text-2xl mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                         {sponsor.logo}
@@ -462,7 +462,6 @@ export default function Home() {
                       <h3 className="text-sm font-bold mb-1">{sponsor.name}</h3>
                     </div>
 
-                    {/* Gold Tier Badge */}
                     {sponsor.tier === 'gold' && (
                       <div className="absolute top-3 right-3">
                         <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-yellow-500 to-amber-500 text-white">
@@ -473,8 +472,9 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-            </div>
+            </div>*/}
           </div>
+          
 
           {/* Become a Sponsor CTA */}
           <div className="text-center">
@@ -497,7 +497,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+        </div>
 
       {/* Newsletter Section */}
       <div className="py-24 sm:py-32 bg-muted/30">
