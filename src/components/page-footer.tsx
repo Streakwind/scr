@@ -1,5 +1,4 @@
-import { Edit, Github, Instagram, Youtube, Heart } from 'lucide-react';
-import Link from 'next/link';
+import { Edit, Github, Instagram, Youtube } from 'lucide-react';
 
 interface PageFooterProps {
   filePath: string;
