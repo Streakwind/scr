@@ -32,10 +32,8 @@ export default function Home() {
 
             {/* Main heading */}
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-8 bg-gradient-to-r from-foreground via-foreground to-muted-foreground bg-clip-text text-transparent">
-              Build Amazing
-              <br />
               <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent">
-                Documentation
+                SeattleCR
               </span>
             </h1>
 

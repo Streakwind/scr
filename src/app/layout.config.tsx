@@ -1,8 +1,14 @@
 import { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import { ThemeLogo } from '@/components/logo';
 
 export const baseOptions: BaseLayoutProps = {
   nav: {
-    title: 'SeattleCR',
+    title: (
+      <div className="flex items-center gap-2">
+        <ThemeLogo />
+        <span className="font-semibold">SeattleCR</span>
+      </div>
+    ),
     transparentMode: 'top',
     url: '/',
   },
