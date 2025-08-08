@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, Zap, Shield, Rocket, Star, Github, Users, Globe, Heart, CheckCircle, Code, Palette } from "lucide-react";
 import { useGoogleAnalytics } from "@/lib/google-analytics";
+import { PageFooter } from "@/components/page-footer";
 
 export default function Home() {
   const googleAnalyticsComponent = useGoogleAnalytics();
@@ -62,22 +63,6 @@ export default function Home() {
                 <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 View on GitHub
               </Link>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
-              <div className="text-center group cursor-pointer">
-                <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-blue-600 transition-colors">100+</div>
-                <div className="text-muted-foreground">Happy Users</div>
-              </div>
-              <div className="text-center group cursor-pointer">
-                <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-green-600 transition-colors">50k+</div>
-                <div className="text-muted-foreground">Downloads</div>
-              </div>
-              <div className="text-center group cursor-pointer">
-                <div className="text-3xl font-bold text-foreground mb-2 group-hover:text-purple-600 transition-colors">99%</div>
-                <div className="text-muted-foreground">Uptime</div>
-              </div>
             </div>
           </div>
         </div>
@@ -293,13 +278,10 @@ export default function Home() {
       </div>
 
       {/* Footer */}
-      <div className="border-t border-border py-12">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-muted-foreground">
-            © 2025 Your Company. All rights reserved. Built with ❤️ and Fumadocs.
-          </p>
-        </div>
-      </div>
+      <PageFooter 
+        filePath="/" 
+        showSocialFooter={true}
+      />
       </div>
     </>
   );
