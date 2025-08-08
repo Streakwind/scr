@@ -29,7 +29,7 @@ export default function Contact() {
         event.currentTarget.reset();
         alert("Success! Your message has been sent.");
       } else {
-        console.log("Error", data);
+        console.log("Error:", data);
         alert("Something went wrong. If this issue persists, email us at seattlecomputingresourcing@gmail.com");
       }
     } catch (error) {
@@ -53,7 +53,7 @@ export default function Contact() {
                 Contact Us
               </h1>
               <p className="text-xl text-muted-foreground">
-                Get in touch with our team. We'd love to hear from you!
+                Get in touch with our team. We would love to hear from you!
               </p>
             </div>
 
