@@ -12,13 +12,11 @@ export default function Contact() {
     event.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(event.currentTarget);
-
-    // You'll need to add your Web3Forms access key as an environment variable
-    formData.append("access_key", process.env.WEB3FORMS_ACCESS_KEY || "");
+    const form = event.currentTarget;
+    const formData = new FormData(form);
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         body: formData
       });
@@ -26,7 +24,7 @@ export default function Contact() {
       const data = await response.json();
 
       if (data.success) {
-        event.currentTarget.reset();
+        form.reset();
         alert("Success! Your message has been sent.");
       } else {
         console.log("Error:", data);
